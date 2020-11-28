@@ -1,0 +1,21 @@
+<h1>填內容</h1>
+
+<%= form_for(@book) do |form| %>
+
+<div>
+  <%= form.label :bookname %>
+  <%= form.text_field :bookname %>
+</div>
+<div>
+  <%= form.label :author %>
+  <%= form.text_field :author %>
+</div>
+<div>
+  <%= form.label :comment %>
+  <%= form.text_area :comment %>
+</div>
+<div>
+  <%= form.submit %>
+</div>
+
+<% end %>

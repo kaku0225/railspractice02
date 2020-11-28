@@ -1,0 +1,35 @@
+<h1>hello</h1>
+
+<%= flash[:notice] %>
+
+<%= link_to '新增書籍', new_book_path %>
+
+
+
+<table>
+  <tr>
+    <td>bookname</td>
+    <td>author</td>
+  </tr>
+
+  <% @book.each do |book| %>
+  <tr>
+    
+    <td><%= link_to book.bookname, book_path(book.id) %></td>
+    <td><%= book.author %></td>
+    <td><%= link_to '編輯', edit_book_path(book.id) %></td>
+    <td><%= link_to '刪除', book_path(book.id), method: 'delete' %></td>
+    
+  </tr>
+  <% end %>
+</table>
+
+
+<% if current_user %>
+  <%= current_user.nickname %>
+  <%= link_to '編輯帳號' , edit_user_path %>
+  <%= link_to '登出', logout_user_path, method:'delete' %>
+<% else %>
+  <%= link_to '註冊', sign_up_user_path %>
+  <%= link_to '登入', sign_in_user_path %>
+<% end %>
